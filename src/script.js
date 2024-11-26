@@ -92,19 +92,19 @@ const bushMaterial = new THREE.MeshStandardMaterial({ color: '#89c854' }) // Sha
 // Create individual bush meshes
 const bush1 = new THREE.Mesh(bushGeometry, bushMaterial)
 bush1.scale.set(0.5, 0.5, 0.5)
-bush1.position.set(0.8, -1.10, 2.2)
+bush1.position.set(0.8, -1.5, 2.2)
 
 const bush2 = new THREE.Mesh(bushGeometry, bushMaterial)
 bush2.scale.set(0.25, 0.25, 0.25)
-bush2.position.set(1.4, -1.15, 2.1)
+bush2.position.set(1.4, -1.7, 2.1)
 
 const bush3 = new THREE.Mesh(bushGeometry, bushMaterial)
 bush3.scale.set(0.4, 0.4, 0.4)
-bush3.position.set(-0.8, -1.15, 2.2)
+bush3.position.set(-0.8, -1.7, 2.2)
 
 const bush4 = new THREE.Mesh(bushGeometry, bushMaterial)
 bush4.scale.set(0.15, 0.15, 0.15)
-bush4.position.set(-1, -1.10, 2.6)
+bush4.position.set(-1, -1.5, 2.6)
 
 // Add all the bushes to the house
 house.add(bush1, bush2, bush3, bush4)
