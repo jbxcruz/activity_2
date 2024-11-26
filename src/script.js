@@ -30,11 +30,11 @@ scene.fog = fog
  */
 const textureLoader = new THREE.TextureLoader()
 
-/**
- * House Container
- */
-const house = new THREE.Group()
-scene.add(house)
+
+
+
+
+
 
 /**
  * Walls
