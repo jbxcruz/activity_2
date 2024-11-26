@@ -43,7 +43,7 @@ const roof = new THREE.Mesh(
     new THREE.MeshStandardMaterial({ color: '#F5F5DC' })
 )
 roof.rotation.y = Math.PI * 0.25 // Rotate the roof to align with the walls
-roof.position.y = 3.5 + 0.5 // Place the roof above the walls
+roof.position.y = 3.0 + 0.5 // Place the roof above the walls
 house.add(roof)
 
 /**
