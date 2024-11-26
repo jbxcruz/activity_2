@@ -85,6 +85,34 @@ house.add(lightTarget); // Optionally add the target to the scene for debugging
 
 
 
+// Bushes
+const bushGeometry = new THREE.SphereGeometry(1, 16, 16) // Shared geometry for all bushes
+const bushMaterial = new THREE.MeshStandardMaterial({ color: '#89c854' }) // Shared material for all bushes
+
+// Create individual bush meshes
+const bush1 = new THREE.Mesh(bushGeometry, bushMaterial)
+bush1.scale.set(0.5, 0.5, 0.5)
+bush1.position.set(0.8, 0.2, 2.2)
+
+const bush2 = new THREE.Mesh(bushGeometry, bushMaterial)
+bush2.scale.set(0.25, 0.25, 0.25)
+bush2.position.set(1.4, 0.1, 2.1)
+
+const bush3 = new THREE.Mesh(bushGeometry, bushMaterial)
+bush3.scale.set(0.4, 0.4, 0.4)
+bush3.position.set(-0.8, 0.1, 2.2)
+
+const bush4 = new THREE.Mesh(bushGeometry, bushMaterial)
+bush4.scale.set(0.15, 0.15, 0.15)
+bush4.position.set(-1, 0.05, 2.6)
+
+// Add all the bushes to the house
+house.add(bush1, bush2, bush3, bush4)
+
+
+
+
+
 
 /**
  * Floor (already added)
