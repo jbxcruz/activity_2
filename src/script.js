@@ -17,14 +17,12 @@ const scene = new THREE.Scene()
 
 
 
-// Renderer
-const renderer = new THREE.WebGLRenderer({
-    canvas: canvas
-})
-renderer.setSize(sizes.width, sizes.height)
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+/**
+* Fog
+*/
+const fog = new THREE.Fog('#262837', 1, 15)
+scene.fog = fog
 
-// Set the clear color of the renderer to match the fog color
 renderer.setClearColor('#262837')
 
 
