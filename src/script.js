@@ -68,9 +68,6 @@ door.position.z = 2 + 0.01 // Place door slightly in front to avoid z-fighting
 house.add(door)
 
 
-
-
-
 // Door light
 const doorLight = new THREE.PointLight('#ff7d46', 1, 10); // intensity and distance
 doorLight.position.set(0, 3.2, 2.7); // Position above the door
@@ -84,6 +81,28 @@ doorLight.target = lightTarget;
 
 house.add(doorLight);
 house.add(lightTarget); // Optionally add the target to the scene for debugging
+
+
+
+
+
+// Left window
+const leftWindow = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.5, 1), // width, height of the window
+    new THREE.MeshStandardMaterial({ color: '#d3d3d3' }) // window color (light gray for now)
+)
+leftWindow.position.set(-2, 1.25, 2) // Position on the left side of the house
+leftWindow.rotation.y = Math.PI / 2 // Rotate it to face outward
+house.add(leftWindow)
+
+// Right window
+const rightWindow = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.5, 1), // width, height of the window
+    new THREE.MeshStandardMaterial({ color: '#d3d3d3' }) // window color
+)
+rightWindow.position.set(2, 1.25, 2) // Position on the right side of the house
+rightWindow.rotation.y = -Math.PI / 2 // Rotate it to face outward
+house.add(rightWindow)
 
 
 
