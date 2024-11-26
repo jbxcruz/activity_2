@@ -29,7 +29,7 @@ scene.add(house)
  * Walls
  */
 const walls = new THREE.Mesh(
-    new THREE.BoxGeometry(6, 2.5, 4), // width, height, depth
+    new THREE.BoxGeometry(4, 5, 4), // width, height, depth
     new THREE.MeshStandardMaterial({ color: '#ac8e82' })
 )
 walls.position.y = 1.25 // Move the walls up so they sit on the floor
@@ -39,7 +39,7 @@ house.add(walls)
  * Roof (Pyramid shape made from a cone)
  */
 const roof = new THREE.Mesh(
-    new THREE.ConeGeometry(6, 1, 6), // radius, height, sides (4 sides make it a pyramid)
+    new THREE.ConeGeometry(3.5, 1, 4), // radius, height, sides (4 sides make it a pyramid)
     new THREE.MeshStandardMaterial({ color: '#F5F5DC' })
 )
 roof.rotation.y = Math.PI * 0.25 // Rotate the roof to align with the walls
