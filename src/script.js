@@ -23,7 +23,6 @@ const scene = new THREE.Scene()
 const fog = new THREE.Fog('#262837', 1, 15)
 scene.fog = fog
 
-renderer.setClearColor('#262837')
 
 
 
