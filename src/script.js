@@ -53,7 +53,7 @@ const door = new THREE.Mesh(
     new THREE.PlaneGeometry(1, 2), // width, height of the door
     new THREE.MeshStandardMaterial({ color: '#aa7b7b' }) // Door color
 )
-door.position.y = 1 // Center the door at the bottom of the walls
+door.position.y = -1 // Center the door at the bottom of the walls
 door.position.z = 2 + 0.01 // Place door slightly in front to avoid z-fighting
 house.add(door)
 
