@@ -15,6 +15,20 @@ const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 
 /**
+ * Fog
+ */
+const fog = new THREE.Fog('#262837', 1, 15) // Color, near, far
+scene.fog = fog
+
+// Set the renderer's clear color to match the fog
+const renderer = new THREE.WebGLRenderer({
+    canvas: canvas
+})
+renderer.setClearColor('#262837') // Ensures the background blends with the fog
+
+
+
+/**
  * Textures
  */
 const textureLoader = new THREE.TextureLoader()
