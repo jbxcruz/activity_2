@@ -73,10 +73,26 @@ door.position.z = 2 + 0.01 // Place door slightly in front to avoid z-fighting
 house.add(door)
 
 
+
+
+
 // Door light
-const doorLight = new THREE.PointLight('#AECCE4', 2, 7)
-doorLight.position.set(0, 3.2, 2.7)
-house.add(doorLight)
+const doorLight = new THREE.PointLight('#ff7d46', 2, 10); // intensity and distance
+doorLight.position.set(0, 3.2, 2.7); // Position above the door
+
+// Create a target for the light (point it downwards)
+const lightTarget = new THREE.Object3D();
+lightTarget.position.set(0, 1, 2.7); // Positioning the target directly below the light
+
+// Set the target
+doorLight.target = lightTarget;
+
+house.add(doorLight);
+house.add(lightTarget); // Optionally add the target to the scene for debugging
+
+
+
+
 
 
 
