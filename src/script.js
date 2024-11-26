@@ -85,7 +85,7 @@ const door = new THREE.Mesh(
 door.geometry.setAttribute('uv2', new THREE.Float32BufferAttribute(door.geometry.attributes.uv.array, 2))
 
 // Position the door and add it to the house
-door.position.y = 1 // Adjust as needed for the door height
+door.position.y = 3 // Adjust as needed for the door height
 door.position.z = 2 + 0.01 // Position the door slightly in front to avoid z-fighting
 house.add(door)
 
