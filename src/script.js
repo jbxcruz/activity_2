@@ -60,7 +60,7 @@ house.add(door)
 
 // Door light
 const doorLight = new THREE.PointLight('#ff7d46', 1, 7)
-doorLight.position.set(0, 2.2, 2.7)
+doorLight.position.set(0, 3.5, 2.7)
 house.add(doorLight)
 
 
