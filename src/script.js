@@ -43,7 +43,7 @@ const roof = new THREE.Mesh(
     new THREE.MeshStandardMaterial({ color: '#F5F5DC' })
 )
 roof.rotation.y = Math.PI * 0.25 // Rotate the roof to align with the walls
-roof.position.y = 3.5 + 0.5 // Place the roof above the walls
+roof.position.y = 2.5 + 0.5 // Place the roof above the walls
 house.add(roof)
 
 /**
@@ -65,7 +65,7 @@ const floor = new THREE.Mesh(
     new THREE.MeshStandardMaterial({ color: '#a9c388' }) // Grass color for floor
 )
 floor.rotation.x = - Math.PI * 0.5 // Rotate to lay flat
-floor.position.y = 0 // Position on the ground level
+floor.position.y = -1 // Position on the ground level
 scene.add(floor)
 
 /**
