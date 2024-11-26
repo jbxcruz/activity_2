@@ -57,6 +57,14 @@ door.position.y = 0 // Center the door at the bottom of the walls
 door.position.z = 2 + 0.01 // Place door slightly in front to avoid z-fighting
 house.add(door)
 
+
+// Door light
+const doorLight = new THREE.PointLight('#ff7d46', 1, 7)
+doorLight.position.set(0, 2.2, 2.7)
+house.add(doorLight)
+
+
+
 /**
  * Floor (already added)
  */
