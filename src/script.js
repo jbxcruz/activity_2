@@ -92,7 +92,7 @@ const bushMaterial = new THREE.MeshStandardMaterial({ color: '#89c854' }) // Sha
 // Create individual bush meshes
 const bush1 = new THREE.Mesh(bushGeometry, bushMaterial)
 bush1.scale.set(0.5, 0.5, 0.5)
-bush1.position.set(0.8, -0.10, 2.2)
+bush1.position.set(0.8, -0.2, 2.2)
 
 const bush2 = new THREE.Mesh(bushGeometry, bushMaterial)
 bush2.scale.set(0.25, 0.25, 0.25)
