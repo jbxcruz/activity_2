@@ -86,30 +86,6 @@ house.add(lightTarget); // Optionally add the target to the scene for debugging
 
 
 
-// Left window
-const leftWindow = new THREE.Mesh(
-    new THREE.PlaneGeometry(1.5, 1), // width, height of the window
-    new THREE.MeshStandardMaterial({ color: '#d3d3d3' }) // window color (light gray for now)
-)
-leftWindow.position.set(-2, 1.25, 2) // Position on the left side of the house
-leftWindow.rotation.y = Math.PI / 2 // Rotate it to face outward
-house.add(leftWindow)
-
-// Right window
-const rightWindow = new THREE.Mesh(
-    new THREE.PlaneGeometry(1.5, 1), // width, height of the window
-    new THREE.MeshStandardMaterial({ color: '#d3d3d3' }) // window color
-)
-rightWindow.position.set(2, 1.25, 2) // Position on the right side of the house
-rightWindow.rotation.y = -Math.PI / 2 // Rotate it to face outward
-house.add(rightWindow)
-
-
-
-
-
-
-
 /**
  * Floor (already added)
  */
