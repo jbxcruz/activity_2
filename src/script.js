@@ -29,7 +29,7 @@ scene.add(house)
  * Walls
  */
 const walls = new THREE.Mesh(
-    new THREE.BoxGeometry(4, 4.5, 4), // width, height, depth
+    new THREE.BoxGeometry(4, 4, 4), // width, height, depth
     new THREE.MeshStandardMaterial({ color: '#ac8e82' })
 )
 walls.position.y = 1 // Move the walls up so they sit on the floor
