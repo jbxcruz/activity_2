@@ -29,7 +29,7 @@ scene.add(house)
  * Walls
  */
 const walls = new THREE.Mesh(
-    new THREE.BoxGeometry(4, 5, 4), // width, height, depth
+    new THREE.BoxGeometry(4, 4.5, 4), // width, height, depth
     new THREE.MeshStandardMaterial({ color: '#ac8e82' })
 )
 walls.position.y = 1.25 // Move the walls up so they sit on the floor
@@ -43,7 +43,7 @@ const roof = new THREE.Mesh(
     new THREE.MeshStandardMaterial({ color: '#F5F5DC' })
 )
 roof.rotation.y = Math.PI * 0.25 // Rotate the roof to align with the walls
-roof.position.y = 3.2 + 0.5 // Place the roof above the walls
+roof.position.y = 3.5 + 0.5 // Place the roof above the walls
 house.add(roof)
 
 /**
