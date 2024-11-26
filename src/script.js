@@ -20,40 +20,67 @@ const scene = new THREE.Scene()
 const textureLoader = new THREE.TextureLoader()
 
 /**
- * House
+ * House Container
  */
-// Temporary sphere
-const sphere = new THREE.Mesh(
-    new THREE.SphereGeometry(1, 32, 32),
-    new THREE.MeshStandardMaterial({ roughness: 0.7 })
-)
-sphere.position.y = 1
-scene.add(sphere)
+const house = new THREE.Group()
+scene.add(house)
 
-// Floor
-const floor = new THREE.Mesh(
-    new THREE.PlaneGeometry(20, 20),
-    new THREE.MeshStandardMaterial({ color: '#a9c388' })
+/**
+ * Walls
+ */
+const walls = new THREE.Mesh(
+    new THREE.BoxGeometry(4, 2.5, 4), // width, height, depth
+    new THREE.MeshStandardMaterial({ color: '#ac8e82' })
 )
-floor.rotation.x = - Math.PI * 0.5
-floor.position.y = 0
+walls.position.y = 1.25 // Move the walls up so they sit on the floor
+house.add(walls)
+
+/**
+ * Roof (Pyramid shape made from a cone)
+ */
+const roof = new THREE.Mesh(
+    new THREE.ConeGeometry(3.5, 1, 4), // radius, height, sides (4 sides make it a pyramid)
+    new THREE.MeshStandardMaterial({ color: '#b35f45' })
+)
+roof.rotation.y = Math.PI * 0.25 // Rotate the roof to align with the walls
+roof.position.y = 2.5 + 0.5 // Place the roof above the walls
+house.add(roof)
+
+/**
+ * Door
+ */
+const door = new THREE.Mesh(
+    new THREE.PlaneGeometry(2, 2), // width, height of the door
+    new THREE.MeshStandardMaterial({ color: '#aa7b7b' }) // Door color
+)
+door.position.y = 1 // Center the door at the bottom of the walls
+door.position.z = 2 + 0.01 // Place door slightly in front to avoid z-fighting
+house.add(door)
+
+/**
+ * Floor (already added)
+ */
+const floor = new THREE.Mesh(
+    new THREE.PlaneGeometry(20, 20), // Large floor area
+    new THREE.MeshStandardMaterial({ color: '#a9c388' }) // Grass color for floor
+)
+floor.rotation.x = - Math.PI * 0.5 // Rotate to lay flat
+floor.position.y = 0 // Position on the ground level
 scene.add(floor)
 
 /**
  * Lights
  */
-// Ambient light
 const ambientLight = new THREE.AmbientLight('#ffffff', 0.5)
 gui.add(ambientLight, 'intensity').min(0).max(1).step(0.001)
 scene.add(ambientLight)
 
-// Directional light
 const moonLight = new THREE.DirectionalLight('#ffffff', 0.5)
-moonLight.position.set(4, 5, - 2)
+moonLight.position.set(4, 5, -2)
 gui.add(moonLight, 'intensity').min(0).max(1).step(0.001)
-gui.add(moonLight.position, 'x').min(- 5).max(5).step(0.001)
-gui.add(moonLight.position, 'y').min(- 5).max(5).step(0.001)
-gui.add(moonLight.position, 'z').min(- 5).max(5).step(0.001)
+gui.add(moonLight.position, 'x').min(-5).max(5).step(0.001)
+gui.add(moonLight.position, 'y').min(-5).max(5).step(0.001)
+gui.add(moonLight.position, 'z').min(-5).max(5).step(0.001)
 scene.add(moonLight)
 
 /**
@@ -64,17 +91,13 @@ const sizes = {
     height: window.innerHeight
 }
 
-window.addEventListener('resize', () =>
-{
-    // Update sizes
+window.addEventListener('resize', () => {
     sizes.width = window.innerWidth
     sizes.height = window.innerHeight
 
-    // Update camera
+    // Update camera and renderer to match new size
     camera.aspect = sizes.width / sizes.height
     camera.updateProjectionMatrix()
-
-    // Update renderer
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
@@ -82,7 +105,6 @@ window.addEventListener('resize', () =>
 /**
  * Camera
  */
-// Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 4
 camera.position.y = 2
@@ -107,17 +129,16 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
  */
 const clock = new THREE.Clock()
 
-const tick = () =>
-{
+const tick = () => {
     const elapsedTime = clock.getElapsedTime()
 
-    // Update controls
+    // Update controls for smooth camera movement
     controls.update()
 
-    // Render
+    // Render the scene with the camera
     renderer.render(scene, camera)
 
-    // Call tick again on the next frame
+    // Call the next frame
     window.requestAnimationFrame(tick)
 }
 
