@@ -16,16 +16,11 @@ const scene = new THREE.Scene()
 
 
 
-
 /**
 * Fog
 */
 const fog = new THREE.Fog('#262837', 1, 15)
 scene.fog = fog
-
-
-
-
 
 
 
@@ -77,7 +72,7 @@ house.add(door)
 
 
 // Door light
-const doorLight = new THREE.PointLight('#ff7d46', 2, 10); // intensity and distance
+const doorLight = new THREE.PointLight('#ff7d46', 1, 10); // intensity and distance
 doorLight.position.set(0, 3.2, 2.7); // Position above the door
 
 // Create a target for the light (point it downwards)
