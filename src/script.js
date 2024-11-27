@@ -85,13 +85,8 @@ house.add(roof)
  * Chimney
  */
 
-// Create the base of the chimney (a simple box)
-const chimneyBase = new THREE.Mesh(
-    new THREE.BoxGeometry(1, 1.5, 1), // width, height, depth
-    new THREE.MeshStandardMaterial({ color: '#2f2f2f' }) // Dark gray for the base
-)
-chimneyBase.position.set(0, 3.5, 1.5) // Position it on the roof of the house
-house.add(chimneyBase)
+
+
 
 // Create the stack of the chimney (slightly narrower and taller)
 const chimneyStack = new THREE.Mesh(
