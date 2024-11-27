@@ -112,14 +112,14 @@ const eyeMaterial = new THREE.MeshStandardMaterial({ color: '#000000' }) // Blac
 
 // Left and right eyes
 const leftEye = new THREE.Mesh(eyeGeometry, eyeMaterial)
-leftEye.position.set(1.7, 2.60, 5.5)
+leftEye.position.set(1, 2.50, 5.5)
 
 const rightEye = new THREE.Mesh(eyeGeometry, eyeMaterial)
-rightEye.position.set(2.3, 2.60, 5.5)
+rightEye.position.set(1, 2.50, 5.5)
 
 // Smile (using small black spheres)
 const smile = []
-const smileRadius = 0.01
+const smileRadius = 0.1
 
 smile.push(new THREE.Mesh(new THREE.SphereGeometry(smileRadius, 8, 8), eyeMaterial))
 smile.push(new THREE.Mesh(new THREE.SphereGeometry(smileRadius, 8, 8), eyeMaterial))
