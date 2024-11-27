@@ -98,13 +98,13 @@ snowmanBottom.position.set(2, 1, 5) // Position on the ground
 
 // Middle sphere (smaller)
 const snowmanMiddle = new THREE.Mesh(snowmanGeometry, snowmanMaterial)
-snowmanMiddle.scale.set(0.3, 0.3, 0.3) // Smaller than the bottom
-snowmanMiddle.position.set(2, 1.50, 5) // Positioned above the bottom sphere
+snowmanMiddle.scale.set(0.5, 0.5, 0.5) // Smaller than the bottom
+snowmanMiddle.position.set(2, 1.70, 5) // Positioned above the bottom sphere
 
 // Head sphere (smallest)
 const snowmanHead = new THREE.Mesh(snowmanGeometry, snowmanMaterial)
-snowmanHead.scale.set(0.10, 0.10, 0.10) // Smallest size for the head
-snowmanHead.position.set(2, 3, 5) // Positioned above the middle sphere
+snowmanHead.scale.set(0.6, 0.6, 0.6) // Smallest size for the head
+snowmanHead.position.set(2, 2.30, 5) // Positioned above the middle sphere
 
 // Snowman face (eyes and smile)
 const eyeGeometry = new THREE.SphereGeometry(0.1, 8, 8) // Small sphere for eyes
@@ -135,7 +135,7 @@ const snowman = new THREE.Group()
 snowman.add(snowmanBottom, snowmanMiddle, snowmanHead, leftEye, rightEye, ...smile)
 
 // Position snowman
-snowman.position.set(0.5, -1.50, -1) // You can adjust this position to move the snowman around
+snowman.position.set(0.5, -1.70, -1) // You can adjust this position to move the snowman around
 
 // Add snowman to the house
 house.add(snowman)
