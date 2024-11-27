@@ -93,7 +93,7 @@ const chimneyStack = new THREE.Mesh(
     new THREE.BoxGeometry(0.6, 2, 0.6), // width, height, depth (smaller dimensions for the stack)
     new THREE.MeshStandardMaterial({ color: '#3e3e3e' }) // Slightly lighter gray for the stack
 )
-chimneyStack.position.set(1.30, 3.50, -2.0) // Place it above the chimney base
+chimneyStack.position.set(1.30, 3.50, -1.0) // Place it above the chimney base
 house.add(chimneyStack)
 
 
