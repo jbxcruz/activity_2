@@ -135,7 +135,7 @@ const snowman = new THREE.Group()
 snowman.add(snowmanBottom, snowmanMiddle, snowmanHead, leftEye, rightEye, ...smile)
 
 // Position snowman
-snowman.position.set(2, 0, 5) // You can adjust this position to move the snowman around
+snowman.position.set(0, -1, -1) // You can adjust this position to move the snowman around
 
 // Add snowman to the house
 house.add(snowman)
