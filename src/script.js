@@ -93,17 +93,17 @@ const snowmanMaterial = new THREE.MeshStandardMaterial({ color: '#ffffff' }) // 
 
 // Bottom sphere (largest)
 const snowmanBottom = new THREE.Mesh(snowmanGeometry, snowmanMaterial)
-snowmanBottom.scale.set(2, 2, 2) // Make the bottom part larger
+snowmanBottom.scale.set(0.6, 0.6, 0.6) // Make the bottom part larger
 snowmanBottom.position.set(2, 1, 5) // Position on the ground
 
 // Middle sphere (smaller)
 const snowmanMiddle = new THREE.Mesh(snowmanGeometry, snowmanMaterial)
-snowmanMiddle.scale.set(1.5, 1.5, 1.5) // Smaller than the bottom
+snowmanMiddle.scale.set(0.3, 0.3, 0.3) // Smaller than the bottom
 snowmanMiddle.position.set(2, 3.2, 5) // Positioned above the bottom sphere
 
 // Head sphere (smallest)
 const snowmanHead = new THREE.Mesh(snowmanGeometry, snowmanMaterial)
-snowmanHead.scale.set(1, 1, 1) // Smallest size for the head
+snowmanHead.scale.set(0.10, 0.10, 0.10) // Smallest size for the head
 snowmanHead.position.set(2, 4.7, 5) // Positioned above the middle sphere
 
 // Snowman face (eyes and smile)
