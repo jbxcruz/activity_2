@@ -25,21 +25,61 @@ scene.fog = fog
  */
 const textureLoader = new THREE.TextureLoader()
 
+
+
+
+
+/**
+ * Textures
+ */
+const textureLoader = new THREE.TextureLoader()
+
+// Load door textures
+const doorColorTexture = textureLoader.load('/textures/door/color.jpg')
+const doorAlphaTexture = textureLoader.load('/textures/door/alpha.jpg')
+const doorAmbientOcclusionTexture = textureLoader.load('/textures/door/ambientOcclusion.jpg')
+const doorHeightTexture = textureLoader.load('/textures/door/height.jpg')
+const doorNormalTexture = textureLoader.load('/textures/door/normal.jpg')
+const doorMetalnessTexture = textureLoader.load('/textures/door/metalness.jpg')
+const doorRoughnessTexture = textureLoader.load('/textures/door/roughness.jpg')
+
+// Load wall textures
+const bricksColorTexture = textureLoader.load('/textures/bricks/color.jpg')
+const bricksAmbientOcclusionTexture = textureLoader.load('/textures/bricks/ambientOcclusion.jpg')
+const bricksNormalTexture = textureLoader.load('/textures/bricks/normal.jpg')
+const bricksRoughnessTexture = textureLoader.load('/textures/bricks/roughness.jpg')
+
 /**
  * House Container
  */
 const house = new THREE.Group()
 scene.add(house)
 
+
 /**
- * Walls
+ * Walls - Updated with Brick Textures
  */
 const walls = new THREE.Mesh(
-    new THREE.BoxGeometry(4, 4, 4), // width, height, depth
-    new THREE.MeshStandardMaterial({ color: '#ac8e82' })
+    new THREE.BoxGeometry(4, 2.5, 4), // width, height, depth
+    new THREE.MeshStandardMaterial({
+        map: bricksColorTexture,
+        aoMap: bricksAmbientOcclusionTexture,
+        normalMap: bricksNormalTexture,
+        roughnessMap: bricksRoughnessTexture
+    })
 )
-walls.position.y = 1 // Move the walls up so they sit on the floor
+
+// Add UV2 mapping for ambient occlusion
+walls.geometry.setAttribute(
+    'uv2',
+    new THREE.Float32BufferAttribute(walls.geometry.attributes.uv.array, 2)
+)
+
+walls.position.y = 1.25 // Adjust to ensure the walls sit on the floor
 house.add(walls)
+
+
+
 
 /**
  * Roof (Pyramid shape made from a cone)
