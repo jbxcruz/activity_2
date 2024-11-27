@@ -73,7 +73,7 @@ house.add(walls)
  */
 const roof = new THREE.Mesh(
     new THREE.ConeGeometry(3.5, 1, 4), // radius, height, sides (4 sides make it a pyramid)
-    new THREE.MeshStandardMaterial({ color: '#F5F5DC' })
+    new THREE.MeshStandardMaterial({ color: '#9D6055' })
 )
 roof.rotation.y = Math.PI * 0.25 // Rotate the roof to align with the walls
 roof.position.y = 3.0 + 0.5 // Place the roof above the walls
