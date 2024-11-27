@@ -43,13 +43,6 @@ const house = new THREE.Group()
 scene.add(house)
 
 
-
-
-
-
-
-
-
 /**
  * Walls - Updated with Brick Textures
  */
@@ -74,7 +67,6 @@ house.add(walls)
 
 
 
-
 /**
  * Roof (Pyramid shape made from a cone)
  */
@@ -85,6 +77,36 @@ const roof = new THREE.Mesh(
 roof.rotation.y = Math.PI * 0.25 // Rotate the roof to align with the walls
 roof.position.y = 3.0 + 0.5 // Place the roof above the walls
 house.add(roof)
+
+
+
+
+/**
+ * Chimney
+ */
+
+// Create the base of the chimney (a simple box)
+const chimneyBase = new THREE.Mesh(
+    new THREE.BoxGeometry(1, 1.5, 1), // width, height, depth
+    new THREE.MeshStandardMaterial({ color: '#2f2f2f' }) // Dark gray for the base
+)
+chimneyBase.position.set(0, 3.5, 1.5) // Position it on the roof of the house
+house.add(chimneyBase)
+
+// Create the stack of the chimney (slightly narrower and taller)
+const chimneyStack = new THREE.Mesh(
+    new THREE.BoxGeometry(0.6, 2, 0.6), // width, height, depth (smaller dimensions for the stack)
+    new THREE.MeshStandardMaterial({ color: '#3e3e3e' }) // Slightly lighter gray for the stack
+)
+chimneyStack.position.set(0, 5.75, 1.5) // Place it above the chimney base
+house.add(chimneyStack)
+
+
+
+
+
+
+
 
 /**
  * Door - Updated with Textures
