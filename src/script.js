@@ -45,6 +45,24 @@ scene.add(house)
 
 
 
+// Clone the house to create a new room
+const room = house.clone();
+
+// Modify the room's position to place it beside the house
+room.position.set(5, 0, 0); // Adjust X to position the room beside the house
+
+// Optionally change the room's roof color or other attributes
+room.children.forEach((child) => {
+    if (child.geometry && child.material) {
+        // Example: Change roof color if desired
+        if (child.geometry.type === 'ConeGeometry') {
+            child.material.color.set('#d4af37'); // Gold-ish roof color for the room
+        }
+    }
+});
+
+// Add the room to the scene
+scene.add(room);
 
 
 
