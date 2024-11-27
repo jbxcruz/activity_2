@@ -317,7 +317,7 @@ const tick = () => {
     // Animate raindrops
     const positions = rain.geometry.attributes.position.array;
     for (let i = 0; i < positions.length; i += 3) {
-        positions[i + 1] -= 0.02; // Move raindrops downwards
+        positions[i + 1] -= 0.10; // Move raindrops downwards
 
         // Reset raindrop to the top if it falls below the floor
         if (positions[i + 1] < -1) {
