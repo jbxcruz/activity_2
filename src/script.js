@@ -49,7 +49,7 @@ scene.add(house)
 const room = house.clone();
 
 // Modify the room's position to place it beside the house
-room.position.set(5, 0, 0); // Adjust X to position the room beside the house
+room.position.set(2, 0, 0); // Adjust X to position the room beside the house
 
 // Optionally change the room's roof color or other attributes
 room.children.forEach((child) => {
