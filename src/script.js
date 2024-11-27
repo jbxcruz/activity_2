@@ -62,7 +62,7 @@ walls.geometry.setAttribute(
     new THREE.Float32BufferAttribute(walls.geometry.attributes.uv.array, 2)
 )
 
-walls.position.y = 0 // Adjust to ensure the walls sit on the floor
+walls.position.y = 1 // Adjust to ensure the walls sit on the floor
 house.add(walls)
 
 
