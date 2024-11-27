@@ -119,7 +119,7 @@ rightEye.position.set(2.3, 5.2, 5.5)
 
 // Smile (using small black spheres)
 const smile = []
-const smileRadius = 0.15
+const smileRadius = 0.010
 
 smile.push(new THREE.Mesh(new THREE.SphereGeometry(smileRadius, 8, 8), eyeMaterial))
 smile.push(new THREE.Mesh(new THREE.SphereGeometry(smileRadius, 8, 8), eyeMaterial))
