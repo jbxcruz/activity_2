@@ -316,12 +316,25 @@ const tick = () => {
 
     // Animate raindrops
     const positions = rain.geometry.attributes.position.array;
-    for (let i = 0; i < positions.length; i += 3) {
-        positions[i + 1] -= 1.50; // Move raindrops downwards
+    const speeds = rain.geometry.attributes.speed.array;
+
+    for (let i = 0; i < positions.length; i += 6) {
+        // Move both start and end points of the raindrop downwards
+        positions[i + 1] -= speeds[i / 6]; // Start Y
+        positions[i + 4] -= speeds[i / 6]; // End Y
 
         // Reset raindrop to the top if it falls below the floor
-        if (positions[i + 1] < -1) {
-            positions[i + 1] = Math.random() * 10; // Reset to a random height
+        if (positions[i + 1] < -1) { // If the starting Y falls below -1
+            const x = (Math.random() - 0.5) * 20;
+            const y = Math.random() * 10;
+            const z = (Math.random() - 0.5) * 20;
+
+            positions[i + 0] = x; // Start X
+            positions[i + 1] = y; // Start Y
+            positions[i + 2] = z; // Start Z
+            positions[i + 3] = x; // End X
+            positions[i + 4] = y - 0.5; // End Y
+            positions[i + 5] = z; // End Z
         }
     }
     rain.geometry.attributes.position.needsUpdate = true;
