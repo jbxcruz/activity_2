@@ -103,7 +103,7 @@ snowmanMiddle.position.set(2, 1.70, 5) // Positioned above the bottom sphere
 
 // Head sphere (smallest)
 const snowmanHead = new THREE.Mesh(snowmanGeometry, snowmanMaterial)
-snowmanHead.scale.set(0.6, 0.6, 0.6) // Smallest size for the head
+snowmanHead.scale.set(0.3, 0.3, 0.3) // Smallest size for the head
 snowmanHead.position.set(2, 2.30, 5) // Positioned above the middle sphere
 
 // Snowman face (eyes and smile)
@@ -119,16 +119,16 @@ rightEye.position.set(2.3, 5.2, 5.5)
 
 // Smile (using small black spheres)
 const smile = []
-const smileRadius = 0.1
+const smileRadius = 0.15
 
 smile.push(new THREE.Mesh(new THREE.SphereGeometry(smileRadius, 8, 8), eyeMaterial))
 smile.push(new THREE.Mesh(new THREE.SphereGeometry(smileRadius, 8, 8), eyeMaterial))
 smile.push(new THREE.Mesh(new THREE.SphereGeometry(smileRadius, 8, 8), eyeMaterial))
 
 // Position smile
-smile[0].position.set(1.8, 4.9, 5.5) // First smile point
-smile[1].position.set(2.0, 4.8, 5.5) // Second smile point
-smile[2].position.set(2.2, 4.9, 5.5) // Third smile point
+smile[0].position.set(1.8, 2.30, 5.5) // First smile point
+smile[1].position.set(2.0, 2.30, 5.5) // Second smile point
+smile[2].position.set(2.2, 2.30, 5.5) // Third smile point
 
 // Group all parts into one group
 const snowman = new THREE.Group()
