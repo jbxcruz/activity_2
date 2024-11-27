@@ -91,7 +91,7 @@ house.add(roof)
 // Create the stack of the chimney (slightly narrower and taller)
 const chimney = new THREE.Mesh(
     new THREE.BoxGeometry(0.6, 2, 0.6), // width, height, depth (smaller dimensions for the stack)
-    new THREE.MeshStandardMaterial({ color: '#3e3e3e' }), // Slightly lighter gray for the stack
+    // Slightly lighter gray for the stack
 
 
         new THREE.MeshStandardMaterial({
