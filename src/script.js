@@ -150,16 +150,58 @@ bush3.position.set(-1, -1, 2.6)
 // Add all the bushes to the house
 house.add(bush1, bush2, bush3)
 
+
+
+
+
 /**
- * Floor (already added)
+ * Floor - Updated with Grass Textures
  */
+const grassColorTexture = textureLoader.load('/textures/grass/color.jpg')
+const grassAmbientOcclusionTexture = textureLoader.load('/textures/grass/ambientOcclusion.jpg')
+const grassNormalTexture = textureLoader.load('/textures/grass/normal.jpg')
+const grassRoughnessTexture = textureLoader.load('/textures/grass/roughness.jpg')
+
+// Repeat and wrap textures for tiling effect
+grassColorTexture.repeat.set(8, 8)
+grassAmbientOcclusionTexture.repeat.set(8, 8)
+grassNormalTexture.repeat.set(8, 8)
+grassRoughnessTexture.repeat.set(8, 8)
+
+grassColorTexture.wrapS = THREE.RepeatWrapping
+grassAmbientOcclusionTexture.wrapS = THREE.RepeatWrapping
+grassNormalTexture.wrapS = THREE.RepeatWrapping
+grassRoughnessTexture.wrapS = THREE.RepeatWrapping
+
+grassColorTexture.wrapT = THREE.RepeatWrapping
+grassAmbientOcclusionTexture.wrapT = THREE.RepeatWrapping
+grassNormalTexture.wrapT = THREE.RepeatWrapping
+grassRoughnessTexture.wrapT = THREE.RepeatWrapping
+
 const floor = new THREE.Mesh(
-    new THREE.PlaneGeometry(20, 20), // Large floor area
-    new THREE.MeshStandardMaterial({ color: '#a9c388' }) // Grass color for floor
+    new THREE.PlaneGeometry(20, 20, 1, 1), // Plane geometry with 1 segment
+    new THREE.MeshStandardMaterial({
+        map: grassColorTexture,
+        aoMap: grassAmbientOcclusionTexture,
+        normalMap: grassNormalTexture,
+        roughnessMap: grassRoughnessTexture
+    })
 )
-floor.rotation.x = - Math.PI * 0.5 // Rotate to lay flat
+
+// Add UV2 mapping for ambient occlusion
+floor.geometry.setAttribute(
+    'uv2',
+    new THREE.Float32BufferAttribute(floor.geometry.attributes.uv.array, 2)
+)
+
+floor.rotation.x = -Math.PI * 0.5 // Rotate to lay flat
 floor.position.y = -1 // Position on the ground level
 scene.add(floor)
+
+
+
+
+
 
 // Lights
 const ambientLight = new THREE.AmbientLight('#b9d5ff', 0.12)  // Dim and blue-ish light
