@@ -47,7 +47,7 @@ scene.add(house)
  * Walls - Updated with Brick Textures
  */
 const walls = new THREE.Mesh(
-    new THREE.BoxGeometry(4, 2.5, 4), // width, height, depth
+    new THREE.BoxGeometry(4, 4, 4), // width, height, depth
     new THREE.MeshStandardMaterial({
         map: bricksColorTexture,
         aoMap: bricksAmbientOcclusionTexture,
