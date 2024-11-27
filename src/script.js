@@ -83,78 +83,62 @@ house.add(roof)
 
 
 
-
 /**
  * Snowman
  */
 
-// Snowman body - three white spheres stacked on top of each other
+// Snowman body - Three white spheres stacked on top of each other
+const snowmanGeometry = new THREE.SphereGeometry(1, 16, 16) // Shared geometry for all snowman parts
+const snowmanMaterial = new THREE.MeshStandardMaterial({ color: '#ffffff' }) // Shared material for all snowman parts
 
 // Bottom sphere (largest)
-const bottomSphere = new THREE.Mesh(
-    new THREE.SphereGeometry(2, 16, 16), // radius, widthSegments, heightSegments
-    new THREE.MeshStandardMaterial({ color: '#ffffff' }) // White color for snowman
-)
-bottomSphere.position.set(2, 1, 5) // Position it on the ground
-house.add(bottomSphere)
+const snowmanBottom = new THREE.Mesh(snowmanGeometry, snowmanMaterial)
+snowmanBottom.scale.set(2, 2, 2) // Make the bottom part larger
+snowmanBottom.position.set(2, 1, 5) // Position on the ground
 
 // Middle sphere (smaller)
-const middleSphere = new THREE.Mesh(
-    new THREE.SphereGeometry(1.5, 16, 16),
-    new THREE.MeshStandardMaterial({ color: '#ffffff' })
-)
-middleSphere.position.set(2, 3.2, 5) // Positioned above the bottom sphere
-house.add(middleSphere)
+const snowmanMiddle = new THREE.Mesh(snowmanGeometry, snowmanMaterial)
+snowmanMiddle.scale.set(1.5, 1.5, 1.5) // Smaller than the bottom
+snowmanMiddle.position.set(2, 3.2, 5) // Positioned above the bottom sphere
 
 // Head sphere (smallest)
-const headSphere = new THREE.Mesh(
-    new THREE.SphereGeometry(1, 16, 16),
-    new THREE.MeshStandardMaterial({ color: '#ffffff' })
-)
-headSphere.position.set(2, 4.7, 5) // Positioned above the middle sphere
-house.add(headSphere)
+const snowmanHead = new THREE.Mesh(snowmanGeometry, snowmanMaterial)
+snowmanHead.scale.set(1, 1, 1) // Smallest size for the head
+snowmanHead.position.set(2, 4.7, 5) // Positioned above the middle sphere
 
 // Snowman face (eyes and smile)
+const eyeGeometry = new THREE.SphereGeometry(0.1, 8, 8) // Small sphere for eyes
+const eyeMaterial = new THREE.MeshStandardMaterial({ color: '#000000' }) // Black material for eyes
 
-// Eyes
-const leftEye = new THREE.Mesh(
-    new THREE.SphereGeometry(0.1, 8, 8),
-    new THREE.MeshStandardMaterial({ color: '#000000' }) // Black color for eyes
-)
-leftEye.position.set(1.7, 5.2, 5.5) // Position the left eye
-house.add(leftEye)
+// Left and right eyes
+const leftEye = new THREE.Mesh(eyeGeometry, eyeMaterial)
+leftEye.position.set(1.7, 5.2, 5.5)
 
-const rightEye = new THREE.Mesh(
-    new THREE.SphereGeometry(0.1, 8, 8),
-    new THREE.MeshStandardMaterial({ color: '#000000' })
-)
-rightEye.position.set(2.3, 5.2, 5.5) // Position the right eye
-house.add(rightEye)
+const rightEye = new THREE.Mesh(eyeGeometry, eyeMaterial)
+rightEye.position.set(2.3, 5.2, 5.5)
 
 // Smile (using small black spheres)
-const smile = [
-    new THREE.Mesh(
-        new THREE.SphereGeometry(0.1, 8, 8),
-        new THREE.MeshStandardMaterial({ color: '#000000' })
-    ),
-    new THREE.Mesh(
-        new THREE.SphereGeometry(0.1, 8, 8),
-        new THREE.MeshStandardMaterial({ color: '#000000' })
-    ),
-    new THREE.Mesh(
-        new THREE.SphereGeometry(0.1, 8, 8),
-        new THREE.MeshStandardMaterial({ color: '#000000' })
-    ),
-]
+const smile = []
+const smileRadius = 0.1
 
-// Position the smile
+smile.push(new THREE.Mesh(new THREE.SphereGeometry(smileRadius, 8, 8), eyeMaterial))
+smile.push(new THREE.Mesh(new THREE.SphereGeometry(smileRadius, 8, 8), eyeMaterial))
+smile.push(new THREE.Mesh(new THREE.SphereGeometry(smileRadius, 8, 8), eyeMaterial))
+
+// Position smile
 smile[0].position.set(1.8, 4.9, 5.5) // First smile point
 smile[1].position.set(2.0, 4.8, 5.5) // Second smile point
 smile[2].position.set(2.2, 4.9, 5.5) // Third smile point
 
-// Add smile to the scene
-house.add(smile[0], smile[1], smile[2])
+// Group all parts into one group
+const snowman = new THREE.Group()
+snowman.add(snowmanBottom, snowmanMiddle, snowmanHead, leftEye, rightEye, ...smile)
 
+// Position snowman
+snowman.position.set(2, 0, 5) // You can adjust this position to move the snowman around
+
+// Add snowman to the house
+house.add(snowman)
 
 
 
