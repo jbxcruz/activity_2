@@ -259,22 +259,82 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
 renderer.setClearColor('#262837')
 
+
+
+
+
+/**
+ * Rain
+ */
+const rainGeometry = new THREE.BufferGeometry();
+const rainCount = 1000; // Number of raindrops
+
+// Create random positions for the raindrops
+const rainPositions = new Float32Array(rainCount * 3);
+for (let i = 0; i < rainCount * 3; i++) {
+    rainPositions[i] = (Math.random() - 0.5) * 20; // Spread raindrops across a 20x20x20 area
+}
+
+rainGeometry.setAttribute(
+    'position',
+    new THREE.BufferAttribute(rainPositions, 3)
+);
+
+// Material for the raindrops
+const rainMaterial = new THREE.PointsMaterial({
+    color: '#ffffff',
+    size: 0.05, // Small raindrops
+    transparent: true,
+    opacity: 0.8,
+});
+
+// Create the Points object
+const rain = new THREE.Points(rainGeometry, rainMaterial);
+scene.add(rain);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Animate
  */
 const clock = new THREE.Clock()
 
 const tick = () => {
-    const elapsedTime = clock.getElapsedTime()
+    const elapsedTime = clock.getElapsedTime();
+
+    // Animate raindrops
+    const positions = rain.geometry.attributes.position.array;
+    for (let i = 0; i < positions.length; i += 3) {
+        positions[i + 1] -= 0.02; // Move raindrops downwards
+
+        // Reset raindrop to the top if it falls below the floor
+        if (positions[i + 1] < -1) {
+            positions[i + 1] = Math.random() * 10; // Reset to a random height
+        }
+    }
+    rain.geometry.attributes.position.needsUpdate = true;
 
     // Update controls for smooth camera movement
-    controls.update()
+    controls.update();
 
     // Render the scene with the camera
-    renderer.render(scene, camera)
+    renderer.render(scene, camera);
 
     // Call the next frame
-    window.requestAnimationFrame(tick)
-}
+    window.requestAnimationFrame(tick);
+};
+
 
 tick()
