@@ -108,7 +108,7 @@ const chimney = new THREE.Mesh(
 
 chimney.geometry.setAttribute(
     'uv2',
-    new THREE.Float32BufferAttribute(walls.geometry.attributes.uv.array, 2)
+    new THREE.Float32BufferAttribute(chimney.geometry.attributes.uv.array, 2)
 )
 
 chimney.position.set(1.30, 3.50, -1.0) // Place it above the chimney base
