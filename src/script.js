@@ -81,12 +81,96 @@ house.add(roof)
 
 
 
+
+
+
+/**
+ * Snowman
+ */
+
+// Snowman body - three white spheres stacked on top of each other
+
+// Bottom sphere (largest)
+const bottomSphere = new THREE.Mesh(
+    new THREE.SphereGeometry(2, 16, 16), // radius, widthSegments, heightSegments
+    new THREE.MeshStandardMaterial({ color: '#ffffff' }) // White color for snowman
+)
+bottomSphere.position.set(2, 1, 5) // Position it on the ground
+house.add(bottomSphere)
+
+// Middle sphere (smaller)
+const middleSphere = new THREE.Mesh(
+    new THREE.SphereGeometry(1.5, 16, 16),
+    new THREE.MeshStandardMaterial({ color: '#ffffff' })
+)
+middleSphere.position.set(2, 3.2, 5) // Positioned above the bottom sphere
+house.add(middleSphere)
+
+// Head sphere (smallest)
+const headSphere = new THREE.Mesh(
+    new THREE.SphereGeometry(1, 16, 16),
+    new THREE.MeshStandardMaterial({ color: '#ffffff' })
+)
+headSphere.position.set(2, 4.7, 5) // Positioned above the middle sphere
+house.add(headSphere)
+
+// Snowman face (eyes and smile)
+
+// Eyes
+const leftEye = new THREE.Mesh(
+    new THREE.SphereGeometry(0.1, 8, 8),
+    new THREE.MeshStandardMaterial({ color: '#000000' }) // Black color for eyes
+)
+leftEye.position.set(1.7, 5.2, 5.5) // Position the left eye
+house.add(leftEye)
+
+const rightEye = new THREE.Mesh(
+    new THREE.SphereGeometry(0.1, 8, 8),
+    new THREE.MeshStandardMaterial({ color: '#000000' })
+)
+rightEye.position.set(2.3, 5.2, 5.5) // Position the right eye
+house.add(rightEye)
+
+// Smile (using small black spheres)
+const smile = [
+    new THREE.Mesh(
+        new THREE.SphereGeometry(0.1, 8, 8),
+        new THREE.MeshStandardMaterial({ color: '#000000' })
+    ),
+    new THREE.Mesh(
+        new THREE.SphereGeometry(0.1, 8, 8),
+        new THREE.MeshStandardMaterial({ color: '#000000' })
+    ),
+    new THREE.Mesh(
+        new THREE.SphereGeometry(0.1, 8, 8),
+        new THREE.MeshStandardMaterial({ color: '#000000' })
+    ),
+]
+
+// Position the smile
+smile[0].position.set(1.8, 4.9, 5.5) // First smile point
+smile[1].position.set(2.0, 4.8, 5.5) // Second smile point
+smile[2].position.set(2.2, 4.9, 5.5) // Third smile point
+
+// Add smile to the scene
+house.add(smile[0], smile[1], smile[2])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Chimney
  */
-
-
-
 
 // Create the stack of the chimney (slightly narrower and taller)
 const chimney = new THREE.Mesh(
